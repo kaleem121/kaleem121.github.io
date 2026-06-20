@@ -92,7 +92,7 @@ function App() {
                 <a href="#projects" className="btn btn-outline" onClick={(e) => { e.preventDefault(); scrollTo('projects'); }}>
                   View Projects <ExternalLink size={18} />
                 </a>
-                <a href="/resume.pdf" target="_blank" className="btn btn-outline">
+                <a href="https://drive.google.com/file/d/1_NPo6eOoQkp8A6cng5XUTlMqJpm5gsl8/view?usp=sharing" target="_blank" className="btn btn-outline">
                   Resume <Download size={18} />
                 </a>
               </div>
