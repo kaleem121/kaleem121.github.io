@@ -3,7 +3,17 @@ import {
   Code2, Database, Layout, Server, Award, Mail, 
   Github, Linkedin, Download, ExternalLink, Moon, Sun, Monitor
 } from 'lucide-react';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import './App.css';
+
+const skillsData = [
+  { subject: 'Angular', value: 95, fullMark: 100 },
+  { subject: 'Java/Spring', value: 90, fullMark: 100 },
+  { subject: 'AI / LLMs', value: 85, fullMark: 100 },
+  { subject: 'Cloud & DevOps', value: 80, fullMark: 100 },
+  { subject: 'Microservices', value: 88, fullMark: 100 },
+  { subject: 'Frontend UI', value: 92, fullMark: 100 },
+];
 
 function App() {
   const [theme, setTheme] = useState('dark');
@@ -98,8 +108,15 @@ function App() {
               </div>
             </div>
             
-            <div className="hero-image-wrapper animate-fade-in delay-200">
-              <img src="/avatar.png" alt="Kaleem Ahmad" className="hero-image" />
+            <div className="hero-image-wrapper animate-fade-in delay-200" style={{ height: '400px', width: '100%' }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart cx="50%" cy="50%" outerRadius="75%" data={skillsData}>
+                  <PolarGrid stroke="var(--color-border)" />
+                  <PolarAngleAxis dataKey="subject" tick={{ fill: 'var(--color-text)', fontSize: 13, fontWeight: 600 }} />
+                  <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
+                  <Radar name="Skills" dataKey="value" stroke="var(--color-primary-light)" fill="var(--color-primary)" fillOpacity={0.5} />
+                </RadarChart>
+              </ResponsiveContainer>
             </div>
           </div>
         </div>
